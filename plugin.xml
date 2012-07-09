@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Simple Validation</name>
+	<summary>Very simple validation helper</summary>
+	<preload>
+		<frontend>true</frontend>
+		<backend>true</backend>
+	</preload>
+	<notes>
+	 Sample use:
+	 <![CDATA[
+    $validation = Plugin::get('riValidation.Validation'); // get the validation object
+
+    // set the rules
+    $validation->setRules(array('fieldname1' => array(
+        'required', // if required, then this field MUST always have a value
+        'isNotEmpty', // if not specified, the default rule (in DefaultRules.php) will be used
+        'isInValues' => array(
+            'options' => array('zip', 'rar'), // some rule can accept additional parameters
+            'message' => 'we need ZIP' // and you can always use your custom message
+        ),
+        'File::isNotEmpty' // here we use the isNotEmpty rule in FileRules.php instead of the default one
+    ));
+
+    $validation->setData(array('fieldname1' => 'abcedd'));
+
+    $validation->validate(); // return true/false. Error, if any, will be in riLog
+     ]]>
+ 	</notes>
+	<authors>
+		<author>
+			<name>RubikIntegration team</name>
+			<email>support@rubikintegration.com</email>
+		</author>
+	</authors>
+	<released>Jul 9th 2012</released>
+	<release>1.0</release>
+	<license uri="http://www.symfony-project.org/license">MIT license</license>
+	<dependencies>
+  		<required>
+   			<php>
+    			<min>5.3.0</min>
+   			</php>
+   		</required>
+   		<plugins> 
+   			<plugin>  			
+  				<codename>riLog</codename>
+				<min>1.0</min>			
+			</plugin>
+   		</plugins>
+	</dependencies>
+	<changelog>
+  		<release>
+   			<version>
+    			<release>1.0.0</release>    			
+   			</version>
+   			<license uri="http://www.symfony-project.com/license">MIT license</license>
+   			<released>Jul 9th 2012</released>
+   			<notes>
+				* first official release for ZePLUF
+   			</notes>
+  		</release>
+  </changelog>
+</plugin>
