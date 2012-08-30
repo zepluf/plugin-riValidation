@@ -6,7 +6,7 @@ use plugins\riPlugin\Plugin;
 
 class UniquePriceRules extends Rules {
 	
-	static function isNotEmpty($value, $options){var_dump($value);
+	static function isNotEmpty($value, $options){
 		return Plugin::get('riValidation.DefaultRules')->isNotEmpty($value[1][1]['options_values_price'], $options);
 	}
 	

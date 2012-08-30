@@ -20,7 +20,7 @@
             'message' => 'we need ZIP' // and you can always use your custom message
         ),
         'File::isNotEmpty' // here we use the isNotEmpty rule in FileRules.php instead of the default one
-    ));
+    )));
 
     $validation->setData(array('fieldname1' => 'abcedd'));
 

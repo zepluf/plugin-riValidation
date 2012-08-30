@@ -62,7 +62,7 @@ class Validation{
         // we loop by the rule to make sure if the the field is not passed we still check for it
         foreach($this->rules as $field => $rules){
 
-            if((!in_array('required', $rules) && !isset($rules['required'])) && $this->data[$field] !== ''){
+            if((!in_array('required', $rules) && !isset($rules['required'])) && empty($this->data[$field])){
                 continue;
             }
 
